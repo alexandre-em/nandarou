@@ -16,6 +16,7 @@ import Test from './screens/Test';
 import Word from './screens/Word';
 import Category from './screens/Category'
 import store from './store/configureStore'
+import Details from './screens/Details';
 
 const Tab = createMaterialBottomTabNavigator();
 const theme_color = "#943e3e"
@@ -64,6 +65,7 @@ export default function App() {
             <Tab.Screen name="Category" component={Category} options={{
               tabBarLabel: false,
             }} />
+            <Tab.Screen name="Details" component={Details} />
           </Tab.Navigator>
         </NavigationContainer>
       </SafeAreaProvider>

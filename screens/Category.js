@@ -9,7 +9,7 @@ import { editSelectionned } from '../store/actions/selectionnedAction'
 
 const themeColor = "#943e3e50"
 
-function Category() {
+function Category({ navigation }) {
     const route = useRoute()
     const kanjiStore = useSelector((state) => state.selectionned)
     const dispatch = useDispatch()
@@ -46,6 +46,7 @@ function Category() {
                                 key={i}
                                 style={kanjiStore.includes(val.kanji.character) ? styles.active : styles.case}
                                 onPress={() => edit(val.kanji.character)}
+                                onLongPress={() => navigation.navigate('Details', { kanji: val.kanji.character })}
                             >{val.kanji.character}</Text>
                         })
                     }
