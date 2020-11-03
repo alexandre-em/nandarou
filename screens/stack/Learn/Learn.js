@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { View, Button, StyleSheet, Text } from 'react-native'
+import React, { useState } from 'react'
+import { StyleSheet, Text } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import kanjiApi from '../../../services/kanjiApi'
 

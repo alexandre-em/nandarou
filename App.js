@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { Provider } from 'react-redux';
+import { Provider, useSelector } from 'react-redux';
 import 'react-native-gesture-handler';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -20,6 +20,10 @@ const Tab = createMaterialBottomTabNavigator();
 const theme_color = "#943e3e"
 
 export default function App() {
+  const [kanjiList, setKanjiList] = useState([])
+  useEffect(() => {
+    setKanjiList(store.getState().selectionned)
+  },[])
   return (
     <Provider store={store}>
       <SafeAreaProvider>
@@ -37,7 +41,7 @@ export default function App() {
                   case "Flashcard":
                     iconName = focused ? 'ios-albums' : 'ios-albums';
                     break;
-                  case "LearnStack":
+                  case "Learn":
                     iconName = focused ? 'ios-bookmarks' : 'ios-bookmarks';
                     break;
                   case "Test":
@@ -56,7 +60,7 @@ export default function App() {
             })}>
             <Tab.Screen name="Home" component={Home} />
             <Tab.Screen name="Flashcard" component={Flashcard} />
-            <Tab.Screen name="LearnStack" component={LearnStack} />
+            <Tab.Screen name="Learn" component={LearnStack} options={{ tabBarBadge: kanjiList.length }}/>
             <Tab.Screen name="Test" component={Test} />
             <Tab.Screen name="Word" component={Word} />
             <Tab.Screen name="Add" component={Add} />

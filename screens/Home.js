@@ -2,6 +2,7 @@ import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Button } from 'react-native-paper'
+import HomeLogo from '../svgs/Home'
 
 const theme_color = "#943e3e"
 
@@ -9,7 +10,7 @@ function Home() {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.logo}>
-                <Text>logo</Text>
+                <HomeLogo />
             </View>
             <View style={styles.stats}>
                 <Text>Your Stats</Text>
