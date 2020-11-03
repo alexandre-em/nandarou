@@ -55,12 +55,16 @@ const styles = StyleSheet.create({
     detailsLinesExample: {
         padding: 5,
         fontWeight: "bold",
-        color: "#243b58",
+        color: "white",
         fontSize: 20,
-        textAlign: "center"
+        backgroundColor: "#943e3e36",
+        borderRadius: 5,
+        textAlign: "center",
     },
     detailsLinesText: {
         color: "#943e3e9a",
+        flexShrink: 1,
+        textAlign: "right",
     },
     detailsLinesTextLeft: {
         color: "#943e3ede",

@@ -1,6 +1,7 @@
 import React from 'react'
-import { View, Text, StyleSheet, Button } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { Button } from 'react-native-paper'
 
 const theme_color = "#943e3e"
 
@@ -14,8 +15,8 @@ function Home() {
                 <Text>Your Stats</Text>
             </View>
             <Button
-                title="Begin a Test"
-                color={theme_color} />
+                mode='contained'
+                color={theme_color} >Begin a Test</Button>
         </SafeAreaView>
     )
 }

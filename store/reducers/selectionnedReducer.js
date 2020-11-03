@@ -1,5 +1,3 @@
-import { deleteSelectionned } from "../actions/selectionnedAction";
-
 let INITIAL_STATE = {
     selectionned: []
 }
@@ -11,6 +9,12 @@ let selectionnedReducer = (state = INITIAL_STATE, action) => {
                 return deleteSelected(state, action)
             else
                 return addSelected(state, action)
+        case "ADD_SELECTIONNED":
+            return addSelected(state, action)
+        case "DELETE_SELECTIONNED":
+            return deleteSelected(state, action)
+        case "DELETE_ALL":
+            return { ...state, selectionned: []}
         default:
             return state
 

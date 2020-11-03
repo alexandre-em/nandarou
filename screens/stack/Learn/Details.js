@@ -1,11 +1,12 @@
 import { useRoute } from '@react-navigation/native'
 import React, { useEffect, useState } from 'react'
-import { Image, Text, View, StyleSheet } from 'react-native'
+import { Text, View, StyleSheet } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
+import { Card } from 'react-native-paper'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import SvgUri from 'react-native-svg-uri'
-import KanjiDetails from '../components/KanjiDetails'
-import kanjiApi from '../services/kanjiApi'
+import KanjiDetails from '../../../components/KanjiDetails'
+import Loading from '../../../components/Loading'
+import kanjiApi from '../../../services/kanjiApi'
 
 function Details({ navigation }) {
     const route = useRoute()
@@ -26,35 +27,44 @@ function Details({ navigation }) {
         getDetails()
     }, [route.params.kanji])
 
-    if (loading) return <SafeAreaView><Text>Loading ...</Text></SafeAreaView>
+    if (loading) return <Loading /> 
     return (
         <ScrollView>
             <SafeAreaView style={styles.container}>
-                <Text style={styles.character}>
-                    {details.kanji.character}
-                </Text>
-                <View style={styles.details}>
-                    <KanjiDetails details={details} />
-                </View>
+                <Card width="90%" style={styles.card}>
+                    <Card.Content >
+                        <Text style={styles.character}>
+                            {details.kanji.character}
+                        </Text>
+                        <View style={styles.details}>
+                            <KanjiDetails details={details} />
+                        </View>
+                    </Card.Content>
+                </Card>
             </SafeAreaView>
         </ScrollView>
     )
 }
 
 const styles = StyleSheet.create({
+    card: {
+        borderRadius: 10,   
+    },
     container: {
         flex: 1,
         flexDirection: "column",
         alignItems: "center",
         width: "100%",
+        paddingBottom: 20,
     },
     character: {
         fontSize: 200,
-        color: "#582424"
+        color: "#582424",
+        textAlign: 'center',
     },
     details: {
         color: "gray",
-        width: "90%",
+        width: "100%",
     },
 })
 
