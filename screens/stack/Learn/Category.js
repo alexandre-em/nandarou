@@ -57,20 +57,22 @@ function Category({ navigation }) {
                     <Card width="90%" >
                         <Card.Title
                             title={`Kanji level ${route.params.level}`}
-                            titleStyle={{ textAlign: "center" }}
+                            titleStyle={{ textAlign: "center", fontFamily: "Roboto_700Bold" }}
                             subtitle={`results: ${kanjiList.length} -  ${kanjiStore.length} selectionned`}
-                            subtitleStyle={{ width: "100%", textAlign: "center" }}
+                            subtitleStyle={{ width: "100%", textAlign: "center", fontFamily: "Roboto_100Thin" }}
                             style={styles.header} />
                         <View style={styles.button}>
                             {kanjiStore.length === kanjiList.length ?
                                 <Button
                                     mode="outlined"
                                     onPress={handleSelectAll}
+                                    labelStyle={{ fontFamily: "Roboto_700Bold" }}
                                     width="85%"
                                     color="#943e3e" >Deselect all</Button> :
                                 <Button
                                     mode='contained'
                                     onPress={handleSelectAll}
+                                    labelStyle={{ fontFamily: "Roboto_700Bold" }}
                                     width="85%"
                                     color="#943e3e" >Select all</Button>}
                         </View>
@@ -131,7 +133,14 @@ const styles = StyleSheet.create({
         color: "#2e1d1dc4",
         padding: 5,
         borderRadius: 5,
-        backgroundColor: themeColor, 
+        shadowColor: "#943e3e",
+        shadowOffset: {
+            width: 0,
+            height: 1,
+        },
+        shadowOpacity: 0.20,
+        shadowRadius: 1.41,
+        elevation: 2,
         marginVertical: 5
     }
 })

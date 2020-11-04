@@ -91,7 +91,7 @@ function Canvas({ strokes, showModal, nextQ }) {
             <View style={{ flexDirection: 'column', alignItems: 'center' }}>
                 <Text>Stroke: {countStroke} </Text>
                 <View
-                    style={{ width: 300, height: 400, backgroundColor: "#ebebebeb" }}
+                    style={{ width: 300, height: 400, backgroundColor: "#943e3e0a" }}
                     onTouchStart={onTouch}
                     onTouchMove={onMove}
                     onTouchEnd={onTouchEnd}>
@@ -102,10 +102,12 @@ function Canvas({ strokes, showModal, nextQ }) {
                         mode="contained"
                         width="37%"
                         onPress={next}
+                        labelStyle={{ fontFamily: "Roboto_700Bold" }}
                         color="#943e3e">Ok</Button>
                     <Button
                         mode="outlined"
                         width="37%"
+                        labelStyle={{ fontFamily: "Roboto_700Bold" }}
                         onPress={clear}
                         color="#943e3e">Clear</Button>
                 </View>

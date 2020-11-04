@@ -2,8 +2,8 @@ import React from 'react'
 import { View } from 'react-native'
 import { createStackNavigator } from '@react-navigation/stack'
 import Category from './stack/Learn/Category';
-import Details from './stack/Learn/Details';
 import Learn from './stack/Learn/Learn';
+import Details from './stack/Learn/Details';
 
 const Stack = createStackNavigator();
 

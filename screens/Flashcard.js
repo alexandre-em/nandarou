@@ -1,8 +1,8 @@
-import { useFocusEffect } from '@react-navigation/native'
 import React, { useEffect, useState } from 'react'
 import { View, StyleSheet, Text } from 'react-native'
 import { Button, Card, Modal, Portal, Provider, Title } from 'react-native-paper'
 import { SafeAreaView } from 'react-native-safe-area-context'
+import { useIsFocused } from '@react-navigation/native';
 import { useSelector } from 'react-redux'
 import Canvas from '../components/Canvas'
 import Error from '../components/Error'
@@ -12,7 +12,7 @@ import kanjiApi from '../services/kanjiApi'
 import Choose from '../svgs/Choose'
 import Wrong from '../svgs/Wrong'
 
-function Flashcard({ navigation, isFocused }) {
+function Flashcard({ navigation }) {
     const kanjiStore = useSelector((state) => state.selectionned)
     const [kanji, setKanji] = useState({})
     const [loading, setLoading] = useState(false)
@@ -20,6 +20,7 @@ function Flashcard({ navigation, isFocused }) {
     const [visible2, setVisible2] = useState(false)
     const [score, setScore] = useState(0)
     const [question, setQuestion] = useState(1)
+    const isFocused = useIsFocused()
 
     const TOTAL_QUESTION = 20
 
@@ -68,38 +69,41 @@ function Flashcard({ navigation, isFocused }) {
         getKanji()
     }
     useEffect(() => {
-        if (kanjiStore>0)
+        if (kanjiStore.length>0)
             getKanji()
-    }, [])
+    }, [isFocused])
 
     if (loading) return <Loading />
-    if ((kanjiStore.length === 0) && (!loading)) return <Error message={"There is no Kanji selected..."}/>
+    if ((kanjiStore.length === 0) && (!loading)) return <Error message={"No Kanji selected..."}/>
     if (question === TOTAL_QUESTION) return <ResultsTest score={score} total={TOTAL_QUESTION} />
     return (
         <Provider>
             <Portal>
                 <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={styles.modal}>
                     <Choose />
-                    <Title>Answer: {kanji.kanji}</Title>
+                    <Title style={styles.font}>Answer: {kanji.kanji}</Title>
                     <View style={styles.buttons}>
                         <Button
                             mode="contained"
                             onPress={handleCorrect}
+                            labelStyle={{ fontFamily: "Roboto_700Bold" }}
                             color="#16da57">Correct</Button>
                         <Button
                             mode="contained"
                             onPress={handleIncorrect}
+                            labelStyle={{ fontFamily: "Roboto_700Bold" }}
                             color="#943e3e">Incorrect</Button>
                     </View>
                 </Modal>
                 <Modal visible={visible2} onDismiss={hideModal2} contentContainerStyle={styles.modal} >
                     <Wrong />
-                    <Title>Wrong number of strokes </Title>
-                    <Title style={{ color: "#943e3ea3" }}>Answer: {kanji.kanji}</Title>
+                    <Title style={styles.font}>Wrong number of strokes </Title>
+                    <Title style={styles.font}>Answer: {kanji.kanji}</Title>
                     <View style={styles.buttons}>
                         <Button
                             mode="contained"
                             onPress={handleIncorrect}
+                            labelStyle={{ fontFamily: "Roboto_700Bold" }}
                             color="#943e3e"
                         >Next</Button>
                     </View>
@@ -111,9 +115,9 @@ function Flashcard({ navigation, isFocused }) {
                     <Card.Title
                         style={styles.header}
                         title={`English : ${kanji.english}`}
-                        titleStyle={{ textAlign: "center" }}
+                        titleStyle={{ textAlign: "center", fontFamily: "Roboto_700Bold" }}
                         subtitle={`Q.${question}/ Score: ${score}`}
-                        subtitleStyle={{ width: "100%", textAlign: "center" }}
+                        subtitleStyle={{ width: "100%", textAlign: "center", fontFamily: "Roboto_100Thin"}}
                     />
                     <View style={styles.canvas}>
                         <Canvas strokes={kanji.stroke} showModal={showModal} nextQ={showModal2} />
@@ -122,12 +126,13 @@ function Flashcard({ navigation, isFocused }) {
             </SafeAreaView>
         </Provider>
     )
-
+    
 }
 const styles = StyleSheet.create({
     header: {
         borderBottomWidth: .3,
-        borderBottomColor: '#503e482a'
+        borderBottomColor: '#503e482a',
+        fontFamily: "Roboto_100Thin",
     },
     modal: {
         backgroundColor: "white",
@@ -149,6 +154,10 @@ const styles = StyleSheet.create({
     },
     canvas: {
         height: "88%"
+    },
+    font: {
+        fontFamily: "Roboto_300Light",
+        color: "#5221219f",
     }
 })
 

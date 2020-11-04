@@ -60,15 +60,17 @@ const styles = StyleSheet.create({
         backgroundColor: "#943e3e36",
         borderRadius: 5,
         textAlign: "center",
+        marginTop: 15,
     },
     detailsLinesText: {
         color: "#943e3e9a",
         flexShrink: 1,
         textAlign: "right",
+        fontFamily: "Roboto_100Thin",
     },
     detailsLinesTextLeft: {
         color: "#943e3ede",
-        fontWeight: "bold"
+        fontFamily: "Roboto_700Bold",
     },
     list: {
         flexDirection: "column",
