@@ -22,7 +22,7 @@ import Test from './screens/Test';
 import { store, persistor } from './store/configureStore'
 import { PersistGate } from 'redux-persist/integration/react';
 import SearchStack from './screens/SearchStack';
-import { View } from 'react-native';
+import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import Loading from './components/Loading';
 
 const Tab = createMaterialBottomTabNavigator();
@@ -33,6 +33,7 @@ function TabNavigation() {
 
   return (
     <SafeAreaProvider>
+      <StatusBar translucent backgroundColor={theme_color} />
       <NavigationContainer>
         <Tab.Navigator
           barStyle={{ backgroundColor: theme_color }}
@@ -89,5 +90,4 @@ export default function App() {
       </PersistGate>
     </Provider>
   );
-
 }

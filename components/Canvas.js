@@ -87,7 +87,7 @@ function Canvas({ strokes, showModal, nextQ }) {
 
 
     return (
-        <View style={{ top: 20 }} >
+        <View >
             <View style={{ flexDirection: 'column', alignItems: 'center' }}>
                 <Text>Stroke: {countStroke} </Text>
                 <View

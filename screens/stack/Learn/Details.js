@@ -29,7 +29,7 @@ function Details({ navigation }) {
 
     if (loading) return <Loading /> 
     return (
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false} >
             <SafeAreaView style={styles.container}>
                 <Card width="90%" style={styles.card}>
                     <Card.Content >

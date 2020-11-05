@@ -52,7 +52,7 @@ function Category({ navigation }) {
 
     return (
         <SafeAreaView >
-            <ScrollView >
+            <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={styles.container}>
                     <Card width="90%" >
                         <Card.Title
@@ -79,6 +79,7 @@ function Category({ navigation }) {
                         <View style={styles.kanji}>
                             {
                                 kanjiList
+                                    .sort((a, b) => a.kanji.stroke - b.kanji.stroke)
                                     .map((val, i) => {
                                         return <Text
                                             key={i}
@@ -126,21 +127,17 @@ const styles = StyleSheet.create({
         fontSize: 50,
         color: "#2e1d1dc4",
         padding: 5,
-        marginVertical: 5
+        marginVertical: 5,
+        borderWidth:1,
+        borderColor: 'rgba(0,0,0,0)'
     },
     active: {
         fontSize: 50,
         color: "#2e1d1dc4",
         padding: 5,
         borderRadius: 5,
-        shadowColor: "#943e3e",
-        shadowOffset: {
-            width: 0,
-            height: 1,
-        },
-        shadowOpacity: 0.20,
-        shadowRadius: 1.41,
-        elevation: 2,
+        borderWidth: 1,
+        borderColor: 'lightgrey',
         marginVertical: 5
     }
 })

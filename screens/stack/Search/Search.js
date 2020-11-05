@@ -31,7 +31,7 @@ function Search({ navigation }) {
     const filter = (filtre, parametre) => {
         setActive(filtre)
         setParameters(parametre)
-        if (search) handleSubmit()
+        handleSubmit()
     }
 
     useEffect(() => {
@@ -48,7 +48,7 @@ function Search({ navigation }) {
 
     return (
         <SafeAreaView>
-            <ScrollView>
+            <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={styles.container}>
                     <Card style={styles.card}>
                         <View style={styles.search}>

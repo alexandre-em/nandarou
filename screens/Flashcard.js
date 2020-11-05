@@ -69,12 +69,12 @@ function Flashcard({ navigation }) {
         getKanji()
     }
     useEffect(() => {
-        if (kanjiStore.length>0)
+        if (kanjiStore.length > 0)
             getKanji()
     }, [isFocused])
 
     if (loading) return <Loading />
-    if ((kanjiStore.length === 0) && (!loading)) return <Error message={"No Kanji selected..."}/>
+    if ((kanjiStore.length === 0) && (!loading)) return <Error message={"No Kanji selected..."} />
     if (question === TOTAL_QUESTION) return <ResultsTest score={score} total={TOTAL_QUESTION} />
     return (
         <Provider>
@@ -116,17 +116,18 @@ function Flashcard({ navigation }) {
                         style={styles.header}
                         title={`English : ${kanji.english}`}
                         titleStyle={{ textAlign: "center", fontFamily: "Roboto_700Bold" }}
-                        subtitle={`Q.${question}/ Score: ${score}`}
-                        subtitleStyle={{ width: "100%", textAlign: "center", fontFamily: "Roboto_100Thin"}}
+                        subtitle={`on: ${kanji.onyomi} 0 kun: ${kanji.kunyomi}`}
+                        subtitleStyle={{ width: "100%", textAlign: "center", fontFamily: "Roboto_100Thin" }}
                     />
                     <View style={styles.canvas}>
+                        <Text style={styles.font}>Score: {score}/{question}</Text>
                         <Canvas strokes={kanji.stroke} showModal={showModal} nextQ={showModal2} />
                     </View>
                 </Card>
             </SafeAreaView>
         </Provider>
     )
-    
+
 }
 const styles = StyleSheet.create({
     header: {

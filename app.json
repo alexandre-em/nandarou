@@ -6,9 +6,9 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/japan.png",
       "resizeMode": "contain",
-      "backgroundColor": "#943e3e"
+      "backgroundColor": "#f3e6e6"
     },
     "updates": {
       "fallbackToCacheTimeout": 0

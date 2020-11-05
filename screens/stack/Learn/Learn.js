@@ -25,7 +25,7 @@ function Learn({ navigation }) {
     }
     return (
         <SafeAreaView style={styles.container}>
-            <ScrollView>
+            <ScrollView showsVerticalScrollIndicator={false}>
                 {Array(6).fill().map((_, i) => {
                     return (
                         <Tile
