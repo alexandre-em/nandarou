@@ -69,6 +69,8 @@ function Flashcard({ navigation }) {
         getKanji()
     }
     useEffect(() => {
+        setScore(0)
+        setQuestion(1)
         if (kanjiStore.length > 0)
             getKanji()
     }, [isFocused])

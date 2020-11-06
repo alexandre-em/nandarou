@@ -37,8 +37,8 @@ function Home({ navigation }) {
                     pagingEnabled
                 >
                     <CardHome title="Learn" image={"https://images.unsplash.com/photo-1581855339095-0c282d58527b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"} navigation={navigation} screen='Learn' />
-                    <CardHome title="Begin a test" image={"https://images.unsplash.com/photo-1486303954368-398fea0e72cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"} navigation={navigation} screen='Flashcard' />
-                    <CardHome title="Search" image={"https://images.unsplash.com/photo-1584515488719-3d1032327938?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=854&q=80"} navigation={navigation} screen='Search' />
+                    <CardHome title="Flashcard" image={"https://images.unsplash.com/photo-1486303954368-398fea0e72cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"} navigation={navigation} screen='Flashcard' />
+                    <CardHome title="Word test" image={'https://images.unsplash.com/photo-1553695730-3e86115764b4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1054&q=80'} navigation={navigation} screen='Test' />
                 </ScrollView>
             </View>
         </SafeAreaView>
@@ -60,9 +60,9 @@ const styles = StyleSheet.create({
         marginVertical: 20,
     },
     font: {
-        fontSize: 50,
-        textAlign: "center",
-        color: "#783c3c",
+        fontSize: 35,
+        color: "#000000bb",
+        width: '90%',
         marginTop: 20,
         fontFamily: 'Roboto_700Bold',
     },

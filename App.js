@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaProvider, } from 'react-native-safe-area-context';
 import { Provider, useSelector } from 'react-redux';
 import 'react-native-gesture-handler';
 
@@ -22,7 +22,7 @@ import Test from './screens/Test';
 import { store, persistor } from './store/configureStore'
 import { PersistGate } from 'redux-persist/integration/react';
 import SearchStack from './screens/SearchStack';
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
+import { StatusBar } from 'react-native';
 import Loading from './components/Loading';
 
 const Tab = createMaterialBottomTabNavigator();
